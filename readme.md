@@ -4,7 +4,7 @@ Read acode plugin [documentation](https://docs.acode.app/docs/) to develop plugi
 
 ## Usage
 
-Use this for debug build:
+Use this for debug:
 
 ```
 npm run dev
@@ -19,3 +19,5 @@ npm run build
 ## How to parse/bundle scss file ?
 
 You'll need to install one sass esbuild plugin and then just add that in `esbuild.config.mjs` at line 34
+
+DEMI DAPAT BADGE
