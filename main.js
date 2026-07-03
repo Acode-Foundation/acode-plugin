@@ -7,29 +7,32 @@ function init(baseUrl, $page, cache) {
     name: "project-creator",
     description: "Open Project Creator",
     exec: async () => {
-      // 1. Récupérer le dossier actuellement ouvert dans l'éditeur
-      const currentFolder = acode.getFolder();
-      if (!currentFolder) {
-        acode.alert("Erreur", "Veuillez d'abord ouvrir un dossier dans Acode pour y créer le projet.");
+      // 1. Récupérer le module openFolder pour obtenir le dossier actif
+      const openFolder = acode.require("openFolder");
+      
+      // On cherche le dossier actuellement sélectionné ou ouvert dans le side-bar
+      const currentFolder = openFolder.target; 
+      if (!currentFolder || !currentFolder.url) {
+        acode.alert("Erreur", "Veuillez d'abord ouvrir ou sélectionner un dossier dans le gestionnaire de fichiers d'Acode.");
         return;
       }
 
-      // 2. Définir les options du menu
+      // 2. Récupérer le module select pour afficher le menu de choix
+      const select = acode.require("select");
       const options = [
         ["html", "Template Web HTML5 (index.html, style.css, script.js)"],
         ["php", "Template PHP (index.php)"],
         ["js", "Template JavaScript (index.js)"]
       ];
 
-      // 3. Afficher le sélecteur natif d'Acode
-      const choice = await acode.select("Créer un modèle de projet", options);
+      // Affichage du menu de sélection natif
+      const choice = await select("Créer un modèle de projet", options);
       if (!choice) return; // L'utilisateur a annulé
 
       try {
         const fs = fsOperation(currentFolder.url);
 
         if (choice === "html") {
-          // Création d'une structure HTML5 de base
           await fs.createFile("index.html", `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -50,19 +53,20 @@ function init(baseUrl, $page, cache) {
         } 
         
         else if (choice === "php") {
-          // Création d'un fichier PHP de base
           await fs.createFile("index.php", `<?php\n// Template PHP\necho "<h1>Hello depuis PHP ! 🐘</h1>";\n?>`);
           window.toast("Template PHP créé avec succès ! ✔️");
         } 
         
         else if (choice === "js") {
-          // Création d'un fichier JS de base
-          await fs.createFile("index.js", `// Template JavaScript\nconsole.log("Hello Node.js / JS ! JS");`);
+          await fs.createFile("index.js", `// Template JavaScript\nconsole.log("Hello Node.js / JS !");`);
           window.toast("Template JS créé avec succès ! ✔️");
         }
 
-        // Rafraîchir l'arborescence des fichiers pour afficher les nouveautés
-        acode.refreshFileList();
+        // 3. Récupérer le module fileList et rafraîchir proprement l'affichage
+        const fileList = acode.require("fileList");
+        if (fileList && typeof fileList.refresh === "function") {
+          fileList.refresh();
+        }
 
       } catch (error) {
         acode.alert("Erreur de création", "Impossible de générer les fichiers : " + error.message);
