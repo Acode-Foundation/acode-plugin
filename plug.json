@@ -1,0 +1,10 @@
+{
+  "id": "com.degrace.projectcreator",
+  "name": "Project Creator",
+  "version": "1.0.0",
+  "main": "main.js",
+  "icon": "icon.png",
+  "author": {
+    "name": "KIMINOU Degrace"
+  }
+}
