@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Acode-Foundation/acode-plugin/main/schema.json",
-  "id": "com.tonpseudo.projectcreator",
+  "id": "com.Degrace15.projectcreator",
   "name": "Project Creator",
   "version": "1.0.0",
   "minVersionCode": 290,
