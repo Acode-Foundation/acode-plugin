@@ -1,10 +1,22 @@
 {
-  "id": "com.degrace.projectcreator",
+  "$schema": "https://raw.githubusercontent.com/Acode-Foundation/acode-plugin/main/schema.json",
+  "id": "com.tonpseudo.projectcreator",
   "name": "Project Creator",
   "version": "1.0.0",
-  "main": "main.js",
+  "minVersionCode": 290,
+  "description": "Quickly generate boilerplate project templates for HTML, PHP, and JavaScript.",
+  "author": "KIMINOU Degrace",
   "icon": "icon.png",
-  "author": {
-    "name": "KIMINOU Degrace"
-  }
+  "main": "dist/main.js",
+  "readme": "README.md",
+  "license": "MIT",
+  "price": 0,
+  "keywords": [
+    "template",
+    "boilerplate",
+    "html",
+    "php",
+    "javascript",
+    "creator"
+  ]
 }
