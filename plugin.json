@@ -1,19 +1,10 @@
 {
-  "$schema": "https://acode.app/schema/plugin/v0.1.0.json",
-  "id": "acode.plugin",
-  "name": "Plugin",
-  "main": "main.js",
+  "id": "com.degrace.projectcreator",
+  "name": "Project Creator",
   "version": "1.0.0",
-  "repository": "https://github.com/Acode-Foundation/acode-plugin.git",
+  "main": "main.js",
   "icon": "icon.png",
-  "minVersionCode": 290,
-  "license": "MIT",
-  "keywords": [],
-  "price": 0,
-  "permissions": [],
   "author": {
-    "name": "",
-    "email": "",
-    "github": ""
+    "name": "KIMINOU Degrace"
   }
 }
