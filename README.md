@@ -1,42 +1,27 @@
-Project Creator
+# Project Creator Plugin for Acode
 
-Project Creator is an Acode plugin that helps developers quickly create project templates.
+A lightweight and efficient plugin for the Acode editor that allows you to instantly generate boilerplate project structures for web development (HTML5, PHP, and JavaScript) directly inside your active workspace.
 
-Features
+## Features
 
-- 📁 Create HTML project templates.
-- 🐘 Create PHP project templates.
-- 📜 Create JavaScript project templates.
-- ⚡ Save time by generating the basic project structure automatically.
-- 🚀 Easy to use and lightweight.
+- **HTML5 Template:** Instantly creates an `index.html` structure (pre-linked with style and script), a starter `style.css`, and a `script.js` file.
+- **PHP Template:** Generates a clean starter `index.php` file.
+- **JavaScript Template:** Generates a basic `index.js` file for quick scripting or Node.js environments.
+- **Native UI Integration:** Uses Acode's official built-in modules for a seamless prompt and file refresh experience.
 
-Installation
+## How to Use
 
-1. Download or clone this repository.
-2. Install the plugin in Acode.
-3. Enable the plugin from the Plugins settings.
-4. Restart Acode if required.
+1. Open a folder in Acode's file manager (required so the plugin knows where to create the files).
+2. Open the Command Palette in Acode (`Ctrl+Shift+P` or via the sidebar menu).
+3. Search for and select **"Open Project Creator"**.
+4. Choose the template you want to generate from the popup selection list.
+5. The files will be created instantly and your file tree will automatically refresh!
 
-Usage
+## Project Structure Created
 
-Open the Project Creator command from Acode, choose the type of project you want to create, and the plugin will generate the project structure.
-
-Roadmap
-
-- [ ] HTML template
-- [ ] PHP template
-- [ ] JavaScript template
-- [ ] Custom project templates
-- [ ] User configuration options
-
-Requirements
-
-- Acode v1.12.6 or later
-
-Author
-
-KIMINOU Degrace
-
-License
-
-This project is licensed under the MIT License.
+### HTML5 Option
+```text
+your-folder/
+├── index.html
+├── style.css
+└── script.js
