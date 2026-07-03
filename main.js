@@ -10,7 +10,6 @@ function init(baseUrl, $page, cache) {
       // 1. Récupérer le module openFolder pour obtenir le dossier actif
       const openFolder = acode.require("openFolder");
       
-      // On cherche le dossier actuellement sélectionné ou ouvert dans le side-bar
       const currentFolder = openFolder.target; 
       if (!currentFolder || !currentFolder.url) {
         acode.alert("Erreur", "Veuillez d'abord ouvrir ou sélectionner un dossier dans le gestionnaire de fichiers d'Acode.");
@@ -25,11 +24,12 @@ function init(baseUrl, $page, cache) {
         ["js", "Template JavaScript (index.js)"]
       ];
 
-      // Affichage du menu de sélection natif
       const choice = await select("Créer un modèle de projet", options);
       if (!choice) return; // L'utilisateur a annulé
 
       try {
+        // 3. Récupérer proprement le module fsOperation requis par Acode
+        const fsOperation = acode.require("fsOperation");
         const fs = fsOperation(currentFolder.url);
 
         if (choice === "html") {
@@ -62,7 +62,7 @@ function init(baseUrl, $page, cache) {
           window.toast("Template JS créé avec succès ! ✔️");
         }
 
-        // 3. Récupérer le module fileList et rafraîchir proprement l'affichage
+        // 4. Récupérer le module fileList et rafraîchir proprement l'affichage
         const fileList = acode.require("fileList");
         if (fileList && typeof fileList.refresh === "function") {
           fileList.refresh();
