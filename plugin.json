@@ -7,7 +7,7 @@
   "description": "Quickly generate boilerplate project templates for HTML, PHP, and JavaScript.",
   "author": "KIMINOU Degrace",
   "icon": "icon.png",
-  "main": "dist/main.js",
+  "main": "main.js",
   "readme": "README.md",
   "license": "MIT",
   "price": 0,
