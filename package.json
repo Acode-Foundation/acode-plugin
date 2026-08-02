@@ -1,0 +1,20 @@
+{
+  "name": "acode-templates",
+  "version": "1.0.0",
+  "description": "Templates plugin for Acode",
+  "main": "src/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node esbuild.config.mjs"
+  },
+  "dependencies": {
+    "acode-plugin-types": "^1.11.7-patch.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.8",
+    "jszip": "^3.10.1"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  }
+}
