@@ -4,6 +4,9 @@
   "name": "Templates",
   "main": "dist/main.js",
   "version": "1.0.0",
+  "readme": "readme.md",
+  "changelogs": "CHANGELOG.md",
+  "repository": "https://github.com/Degrace15/acode-templates",
   "icon": "icon.png",
   "minVersionCode": 290,
   "license": "MIT",
@@ -21,4 +24,3 @@
   },
   "description": "Create HTML, PHP and JavaScript project templates in Acode."
 }
-
