@@ -3,7 +3,7 @@
   "id": "com.degrace.templates",
   "name": "Templates",
   "main": "dist/main.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "readme": "readme.md",
   "changelogs": "CHANGELOG.md",
   "repository": "https://github.com/Degrace15/acode-templates",
@@ -14,13 +14,19 @@
   "keywords": [
     "template",
     "html",
+    "css",
     "php",
-    "javascript"
+    "javascript",
+    "python",
+    "c",
+    "cpp",
+    "java",
+    "project-generator"
   ],
   "author": {
     "name": "Hacker2.0",
     "email": "kiminoudegrace64@gmail.com",
     "github": "Degrace15"
   },
-  "description": "Create HTML, PHP and JavaScript project templates in Acode."
+  "description": "Create complete project templates for HTML, PHP, JavaScript, Python, C, C++, Java in Acode."
 }

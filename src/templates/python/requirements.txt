@@ -1,0 +1,4 @@
+# Python project dependencies
+# Add your packages here
+
+requests==2.32.3

@@ -5,7 +5,7 @@ const zip = new JSZip();
 
 const files = [
   "plugin.json",
-  "README.md",
+  "readme.md",
   "CHANGELOG.md",
   "icon.png",
   "dist/main.js"

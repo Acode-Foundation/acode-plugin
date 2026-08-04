@@ -1,0 +1,24 @@
+{
+  "$schema": "https://acode.app/schema/plugin/v0.1.0.json",
+  "id": "com.degrace.templates",
+  "name": "Templates",
+  "main": "dist/main.js",
+  "version": "1.0.0",
+  "icon": "icon.png",
+  "minVersionCode": 290,
+  "license": "MIT",
+  "price": 0,
+  "keywords": [
+    "template",
+    "html",
+    "php",
+    "javascript"
+  ],
+  "author": {
+    "name": "Hacker2.0",
+    "email": "kiminoudegrace64@gmail.com",
+    "github": "Degrace15"
+  },
+  "description": "Create HTML, PHP and JavaScript project templates in Acode."
+}
+

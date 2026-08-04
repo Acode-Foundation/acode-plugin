@@ -14,20 +14,27 @@ function init(baseUrl, $page, cache) {
     exec: async () => {
 
       const templates = [
-        ["html", "HTML5 Template"],
-        ["php", "PHP Template"],
-        ["js", "JavaScript Template"]
+        ["html", "HTML5 Project"],
+        ["php", "PHP Project"],
+        ["javascript", "JavaScript Project"],
+        ["python", "Python Project"],
+        ["c", "C Project"],
+        ["cpp", "C++ Project"],
+        ["java", "Java Project"]
       ];
+
 
       const choice = await select(
         "Choose a template",
         templates
       );
 
+
       if (!choice) return;
 
 
       const folder = addedFolder[0];
+
 
       if (!folder) {
 
@@ -47,15 +54,12 @@ function init(baseUrl, $page, cache) {
 
         if (choice === "html") {
 
-
           await fs.createFile(
             "index.html",
 `<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Project</title>
+<title>My Website</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -75,18 +79,19 @@ function init(baseUrl, $page, cache) {
 `body {
   margin: 0;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
 }`
           );
 
 
           await fs.createFile(
             "script.js",
-`console.log("JavaScript loaded successfully");`
+`console.log("JavaScript loaded");`
           );
 
-
         }
+
+
         else if (choice === "php") {
 
           await fs.createFile(
@@ -99,11 +104,96 @@ echo "Hello PHP 🚀";
           );
 
 
-        } else if (choice === "js") {
+          await fs.createFile(
+            "config.php",
+`<?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "database";
+
+?>`
+          );
+
+        }
+
+
+        else if (choice === "javascript") {
 
           await fs.createFile(
             "index.js",
 `console.log("Hello JavaScript 🚀");`
+          );
+
+        }
+
+
+        else if (choice === "python") {
+
+          await fs.createFile(
+            "main.py",
+`print("Hello Python 🚀")`
+          );
+
+
+          await fs.createFile(
+            "requirements.txt",
+``
+          );
+
+        }
+
+
+        else if (choice === "c") {
+
+          await fs.createFile(
+            "main.c",
+`#include <stdio.h>
+
+int main(){
+
+    printf("Hello C 🚀");
+
+    return 0;
+}`
+          );
+
+        }
+
+
+        else if (choice === "cpp") {
+
+          await fs.createFile(
+            "main.cpp",
+`#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    cout << "Hello C++ 🚀";
+
+    return 0;
+}`
+          );
+
+        }
+
+
+        else if (choice === "java") {
+
+          await fs.createFile(
+            "Main.java",
+`public class Main {
+
+    public static void main(String[] args){
+
+        System.out.println("Hello Java 🚀");
+
+    }
+
+}`
           );
 
         }
@@ -117,7 +207,7 @@ echo "Hello PHP 🚀";
         );
 
 
-      } catch (error) {
+      } catch(error) {
 
 
         acode.alert(
@@ -128,22 +218,22 @@ echo "Hello PHP 🚀";
 
       }
 
-
     }
 
   });
 
-
 }
 
 
-function unmount() {
+
+function unmount(){
 
   const commands = acode.require("commands");
 
   commands.removeCommand("templates");
 
 }
+
 
 
 acode.setPluginInit(
