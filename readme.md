@@ -1,21 +1,76 @@
-# Acode plugin
+# Templates
 
-Read acode plugin [documentation](https://docs.acode.app/docs/) to develop plugin for acode editor.
+A project template generator plugin for Acode.
 
-## Usage
+## 🚀 Features
 
-Use this for debug build:
+Templates helps you create complete project structures directly inside Acode.
 
-```
-npm run dev
-```
+## 📦 Available Templates
 
-and this for production build:
+- HTML5
+- PHP
+- JavaScript
+- Python
+- C
+- C++
+- Java
 
-```
-npm run build
-```
+## ✨ Features in 1.1.0
 
-## How to parse/bundle scss file ?
+- Create complete project templates
+- Generate multiple files automatically
+- Support for multiple programming languages
+- Ready-to-use project structures
+- Faster project creation in Acode
 
-You'll need to install one sass esbuild plugin and then just add that in `esbuild.config.mjs` at line 34
+## 📂 Examples
+
+### HTML Project
+
+Creates:
+
+index.html style.css script.js 
+
+
+### PHP Project
+
+Creates:
+
+index.php config.php
+
+
+### Python Project
+
+Creates:
+
+main.py requirements.txt
+
+
+## ⚙️ Installation
+
+1. Download the plugin ZIP file.
+2. Open Acode.
+3. Go to Plugins.
+4. Install Templates.
+
+## 🛠 Usage
+
+1. Open a project folder in Acode.
+2. Open the command palette.
+3. Run:
+
+Templates 
+
+
+4. Select your project type.
+
+## 👨‍💻 Developer
+
+Author: Hacker2.0
+
+GitHub:
+https://github.com/Degrace15
+
+License:
+MIT

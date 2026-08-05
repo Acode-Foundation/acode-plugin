@@ -1,26 +1,248 @@
-import plugin from '../plugin.json';
+import plugin from "../plugin.json";
 
-class AcodePlugin {
+function init(baseUrl, $page, cache) {
 
-  async init() {
-    // plugin initialisation 
-  }
+  const commands = acode.require("commands");
+  const select = acode.require("select");
+  const fsOperation = acode.require("fsOperation");
 
-  async destroy() {
-    // plugin clean up
-  }
-}
+  commands.addCommand({
 
-if (window.acode) {
-  const acodePlugin = new AcodePlugin();
-  acode.setPluginInit(plugin.id, async (baseUrl, $page, { cacheFileUrl, cacheFile }) => {
-    if (!baseUrl.endsWith('/')) {
-      baseUrl += '/';
+    name: "templates",
+    description: "Create project templates",
+
+    exec: async () => {
+
+      const templates = [
+        ["html", "HTML5 Project"],
+        ["php", "PHP Project"],
+        ["javascript", "JavaScript Project"],
+        ["python", "Python Project"],
+        ["c", "C Project"],
+        ["cpp", "C++ Project"],
+        ["java", "Java Project"]
+      ];
+
+
+      const choice = await select(
+        "Choose a template",
+        templates
+      );
+
+
+      if (!choice) return;
+
+
+      const folder = addedFolder[0];
+
+
+      if (!folder) {
+
+        acode.alert(
+          "Error",
+          "Please open a folder in Acode first."
+        );
+
+        return;
+      }
+
+
+      try {
+
+        const fs = await fsOperation(folder.url);
+
+
+        if (choice === "html") {
+
+          await fs.createFile(
+            "index.html",
+`<!DOCTYPE html>
+<html>
+<head>
+<title>My Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Hello Acode 🚀</h1>
+
+<script src="script.js"></script>
+
+</body>
+</html>`
+          );
+
+
+          await fs.createFile(
+            "style.css",
+`body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial;
+}`
+          );
+
+
+          await fs.createFile(
+            "script.js",
+`console.log("JavaScript loaded");`
+          );
+
+        }
+
+
+        else if (choice === "php") {
+
+          await fs.createFile(
+            "index.php",
+`<?php
+
+echo "Hello PHP 🚀";
+
+?>`
+          );
+
+
+          await fs.createFile(
+            "config.php",
+`<?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "database";
+
+?>`
+          );
+
+        }
+
+
+        else if (choice === "javascript") {
+
+          await fs.createFile(
+            "index.js",
+`console.log("Hello JavaScript 🚀");`
+          );
+
+        }
+
+
+        else if (choice === "python") {
+
+          await fs.createFile(
+            "main.py",
+`print("Hello Python 🚀")`
+          );
+
+
+          await fs.createFile(
+            "requirements.txt",
+``
+          );
+
+        }
+
+
+        else if (choice === "c") {
+
+          await fs.createFile(
+            "main.c",
+`#include <stdio.h>
+
+int main(){
+
+    printf("Hello C 🚀");
+
+    return 0;
+}`
+          );
+
+        }
+
+
+        else if (choice === "cpp") {
+
+          await fs.createFile(
+            "main.cpp",
+`#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    cout << "Hello C++ 🚀";
+
+    return 0;
+}`
+          );
+
+        }
+
+
+        else if (choice === "java") {
+
+          await fs.createFile(
+            "Main.java",
+`public class Main {
+
+    public static void main(String[] args){
+
+        System.out.println("Hello Java 🚀");
+
     }
-    acodePlugin.baseUrl = baseUrl;
-    await acodePlugin.init($page, cacheFile, cacheFileUrl);
+
+}`
+          );
+
+        }
+
+
+        folder.reload();
+
+
+        window.toast(
+          "Template created successfully ✅"
+        );
+
+
+      } catch(error) {
+
+
+        acode.alert(
+          "Error",
+          error.message
+        );
+
+
+      }
+
+    }
+
   });
-  acode.setPluginUnmount(plugin.id, () => {
-    acodePlugin.destroy();
-  });
+
 }
+
+
+
+function unmount(){
+
+  const commands = acode.require("commands");
+
+  commands.removeCommand("templates");
+
+}
+
+
+
+acode.setPluginInit(
+  plugin.id,
+  init
+);
+
+
+acode.setPluginUnmount(
+  plugin.id,
+  unmount
+);
