@@ -1,4 +1,3 @@
 node_modules/
-*.log
-.DS_Store
-node_modules/
+acode-plugin/node_modules/
+*.zip
